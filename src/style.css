@@ -1,0 +1,114 @@
+* {
+    margin: 0; 
+    padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(52, 50, 53);
+    position: relative; 
+    overflow: hidden;
+}
+
+body::after, body::before {
+    content: ''; 
+    position: fixed; 
+    height: min(100vw, 100vh); 
+    width: min(100vw, 100vh); 
+    border-radius: 50%;
+    z-index: -1;
+}
+
+body::after {
+    background-color: #B026FF;
+    top: -25vw;
+    left: -25vw;
+    box-shadow: 0 4px 30px 0 rgba(196, 123, 238, 0.5); 
+}
+body::before {
+    background-color: #1F51FF;
+    bottom: -25vw;
+    right: -25vw; 
+    box-shadow: -4px -4px 30px 0 rgba(119, 143, 233, 0.5); 
+}
+
+#root {
+    width: 80%; 
+    margin: 0 auto;
+    border: 1px solid #b3bdbd; 
+    padding: 20px 10px; 
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 0 4px 10px 0 rgba(255,255,255,0.5);
+}
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px 10px; 
+}
+form {
+    display: grid; 
+    gap: 10px; 
+    width: 80%; 
+    margin: 0 auto; 
+}
+label {
+    display: grid; 
+}
+input {
+    border-radius: 3px; 
+    outline: none; 
+    border: 1px solid #b3bdbd; 
+}
+button {
+    cursor: pointer;
+    outline:none; 
+    border-radius: 3px; 
+    border: 2px solid transparent; 
+    background-color: #B026FF;
+    color: white; 
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+input:focus, button:focus {
+    border: 2px solid #1F51FF; 
+}
+button:hover {
+    background-color: #7c4c97;
+}
+.error {
+    border: 2px solid red; 
+    background-color: rgb(243, 191, 191); 
+    border-radius: 3px;
+}
+.error:focus-visible {
+    outline: 3px solid red; 
+}
+
+@media screen and (min-width: 64em) {
+    form {
+        display: grid; 
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 1fr;
+        gap: 20px; 
+    }
+
+    label:nth-child(1) {
+        grid-column: 1 / 3; 
+    }
+    button {
+        grid-column: 1 / 3; 
+        width: 50%; 
+        text-align: center;
+        margin: 0 auto; 
+    }
+}
